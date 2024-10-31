@@ -24,6 +24,17 @@ def signup_user(auth_token, payload, base_url):
     return response
 
 
+def add_user(auth_token, payload, base_url):
+    response = requests.post(f'{base_url}/api/v1/auths/add', json=payload,
+                             headers={
+                                 "Content-Type": "application/json",
+                                 "authorization": f'Bearer {auth_token}'
+                             },
+                             verify=False)
+
+    return response
+
+
 def get_admin_config(auth_token, base_url):
     response = requests.get(f'{base_url}/api/v1/auths/admin/config',
                             headers={
