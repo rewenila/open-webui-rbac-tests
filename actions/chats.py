@@ -12,6 +12,16 @@ def create_chat(auth_token, payload, base_url):
     return response
 
 
+def get_chat_by_id(auth_token, chat_id, base_url):
+    response = requests.get(f'{base_url}/api/v1/chats/{chat_id}',
+                             headers={
+                                 "Content-Type": "application/json",
+                                 "authorization": f'Bearer {auth_token}'
+                             },
+                            verify=False)
+    return response
+
+
 def get_chat_list_by_session_user(auth_token, base_url):
     response = requests.get(f'{base_url}/api/v1/chats/list',
                              headers={

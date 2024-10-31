@@ -56,3 +56,23 @@ def change_user_role(auth_token, user_id, base_url):
     return response
 
 
+def get_settings_by_session_user(auth_token, base_url):
+    response = requests.get(f'{base_url}/api/v1/users/user/settings',
+                            headers={
+                                "Content-Type": "application/json",
+                                "authorization": f'Bearer {auth_token}'
+                            },
+                            verify=False)
+    return response
+
+
+def update_settings_by_session_user(auth_token, payload, base_url):
+    response = requests.post(f'{base_url}/api/v1/users/user/settings/update', json=payload,
+                             headers={
+                                 "Content-Type": "application/json",
+                                 "authorization": f'Bearer {auth_token}'
+                             },
+                             verify=False)
+    
+    return response
+

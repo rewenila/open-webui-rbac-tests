@@ -23,6 +23,20 @@ def add_user_payload(role=None):
     return payload
 
 
+def add_second_user_payload(role=None):
+    payload = {
+        "name": "Jane Doe",
+        "email": "jane.doe@test.com",
+        "password": "test123",
+        "profile_image_url": "/user.png",
+    }
+
+    if role is not None:
+        payload["role"] = role
+
+    return payload
+
+
 def update_user_payload():
     payload = {
         "name": "Updated John Doe",
@@ -30,6 +44,18 @@ def update_user_payload():
         "profile_image_url": "/user.png",
         "password": "test456",
     }
+
+    return payload
+
+
+def update_password_payload():
+    payload = {"password": "test123", "new_password": "test456"}
+
+    return payload
+
+
+def update_profile_payload():
+    payload = {"profile_image_url": "/updated_user.png", "name": "Updated John Doe"}
 
     return payload
 
@@ -56,6 +82,25 @@ def update_admin_config_payload(
         "JWT_EXPIRES_IN": "-1",
         "ENABLE_COMMUNITY_SHARING": should_enable_community_sharing,
         "ENABLE_MESSAGE_RATING": should_enable_message_rating,
+    }
+
+    return payload
+
+
+def update_user_settings_payload():
+    payload = {
+        "ui": {
+            "landingPageMode": "chat",
+            "chatBubble": True,
+            "notificationEnabled": True,
+            "showUsername": True,
+            "widescreenMode": True,
+            "chatDirection": "RTL",
+            "splitLargeChunks": False,
+            "scrollOnBranchChange": True,
+            "speechAutoSend": False,
+        },
+        "additionalProp1": {},
     }
 
     return payload
