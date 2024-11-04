@@ -87,6 +87,40 @@ def update_admin_config_payload(
     return payload
 
 
+def add_model_payload():
+    payload = {
+        "id": "test_model",
+        "base_model_id": "gemma:2b",
+        "name": "Test Model",
+        "meta": {
+            "profile_image_url": "/model.png",
+            "description": "Test model based on gemma:2b",
+            "capabilities": {"vision": True},
+            "additionalProp1": {},
+        },
+        "params": {"additionalProp1": {}},
+    }
+
+    return payload
+
+
+def update_model_payload():
+    payload = {
+        "id": "test_model",
+        "base_model_id": "gemma:2b",
+        "name": "Updated Test Model",
+        "meta": {
+            "profile_image_url": "/updated_model.png",
+            "description": "Updated test model based on gemma:2b",
+            "capabilities": {"vision": False},
+            "additionalProp1": {},
+        },
+        "params": {"additionalProp1": {}},
+    }
+
+    return payload
+
+
 def update_user_settings_payload():
     payload = {
         "ui": {
@@ -101,6 +135,46 @@ def update_user_settings_payload():
             "speechAutoSend": False,
         },
         "additionalProp1": {},
+    }
+
+    return payload
+
+
+def create_prompt_payload():
+    payload = {
+        "command": "/test-prompt",
+        "title": "Test Prompt",
+        "content": "This is a test prompt.",
+    }
+
+    return payload
+
+
+def update_prompt_payload():
+    payload = {
+        "command": "/test-prompt",
+        "title": "Updated Test Prompt",
+        "content": "This is the updated test prompt.",
+    }
+
+    return payload
+
+
+def create_knowledge_payload():
+    payload = {
+        "name": "Test Knowledge",
+        "description": "This is a test knowledge base",
+        "data": {},
+    }
+
+    return payload
+
+
+def update_knowledge_payload():
+    payload = {
+        "name": "Updated Test Knowledge",
+        "description": "This is the updated test knowledge base",
+        "data": {},
     }
 
     return payload
