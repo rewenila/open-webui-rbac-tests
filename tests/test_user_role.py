@@ -19,7 +19,7 @@ load_dotenv()
 def setup_data(get_base_url):
     base_url = get_base_url
     
-    admin_login_response = do_login(os.getenv('EMAIL'), os.getenv('PASSWORD'), base_url)
+    admin_login_response = do_login(os.getenv('OPENWEBUI_ADMIN_EMAIL'), os.getenv('OPENWEBUI_ADMIN_PWD'), base_url)
     admin_auth_token = admin_login_response.json()['token']
 
     add_user_response = add_user(admin_auth_token, add_user_payload('user'), base_url)
