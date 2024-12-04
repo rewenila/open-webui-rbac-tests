@@ -6,6 +6,9 @@ def do_login(email, password, base_url):
         'email': email,
         'password': password
     }
+
+    print(f"Trying to sign in to {base_url}/api/v1/auths/signin with credentials {payload}")
+
     response = requests.post(f'{base_url}/api/v1/auths/signin', json=payload,
                              headers={"Content-Type": "application/json"},
                              verify=False)
@@ -14,6 +17,8 @@ def do_login(email, password, base_url):
 
 
 def signup_user(auth_token, payload, base_url):
+    print(f"Trying to sign up to {base_url}/api/v1/auths/signup with credentials {payload}")
+
     response = requests.post(f'{base_url}/api/v1/auths/signup', json=payload,
                              headers={
                                  "Content-Type": "application/json",

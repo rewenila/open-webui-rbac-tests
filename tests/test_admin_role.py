@@ -19,7 +19,7 @@ load_dotenv()
 def setup_data(get_base_url):
     base_url = get_base_url
 
-    response = do_login(os.getenv('EMAIL'), os.getenv('PASSWORD'), base_url)
+    response = do_login(os.getenv('OPENWEBUI_ADMIN_EMAIL'), os.getenv('OPENWEBUI_ADMIN_PWD'), base_url)
     assert response.status_code == 200, f"[ERROR] {response.json()['detail']}"
     assert response.json()['token'] != "", '[ERROR] Bearer token came empty'
     
